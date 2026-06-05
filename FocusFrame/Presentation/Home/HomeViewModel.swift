@@ -1,5 +1,6 @@
 import Foundation
 import PhotosUI
+import SwiftUI
 
 @MainActor
 final class HomeViewModel: ObservableObject {
@@ -56,9 +57,7 @@ final class HomeViewModel: ObservableObject {
             resultURL = nil
             processingState = .analyzing(progress: 0)
             let trackedPerson = try await analyzePersonUseCase.execute(video: selectedVideo) { [weak self] progress in
-                await MainActor.run {
-                    self?.processingState = .analyzing(progress: progress)
-                }
+                self?.processingState = .analyzing(progress: progress)
             }
 
             processingState = .planning
@@ -69,9 +68,7 @@ final class HomeViewModel: ObservableObject {
                 video: selectedVideo,
                 cropFrames: cropFrames
             ) { [weak self] progress in
-                await MainActor.run {
-                    self?.processingState = .exporting(progress: progress)
-                }
+                self?.processingState = .exporting(progress: progress)
             }
 
             resultURL = exportedURL
@@ -96,4 +93,3 @@ final class HomeViewModel: ObservableObject {
         }
     }
 }
-

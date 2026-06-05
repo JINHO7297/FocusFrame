@@ -15,7 +15,7 @@ final class VisionPersonDetectionService {
     /// MVP target for that timestamp.
     func detectPeople(
         in video: VideoAsset,
-        progress: @escaping @Sendable (Double) async -> Void
+        progress: @escaping ProgressHandler
     ) async throws -> [PersonDetection] {
         try await Task.detached(priority: .userInitiated) { [sampleFPS] in
             let asset = AVURLAsset(url: video.url)
@@ -70,4 +70,3 @@ final class VisionPersonDetectionService {
         )
     }
 }
-

@@ -1,6 +1,7 @@
 import CoreTransferable
 import Foundation
 import PhotosUI
+import SwiftUI
 import UniformTypeIdentifiers
 
 struct PickedVideoFile: Transferable {
@@ -32,4 +33,3 @@ final class PickVideoUseCase {
         return try await metadataService.metadata(for: file.url)
     }
 }
-

@@ -14,10 +14,9 @@ final class AnalyzePersonUseCase {
 
     func execute(
         video: VideoAsset,
-        progress: @escaping @Sendable (Double) async -> Void
+        progress: @escaping ProgressHandler
     ) async throws -> TrackedPerson {
         let detections = try await detectionService.detectPeople(in: video, progress: progress)
         return try trackingService.trackLargestPerson(from: detections)
     }
 }
-

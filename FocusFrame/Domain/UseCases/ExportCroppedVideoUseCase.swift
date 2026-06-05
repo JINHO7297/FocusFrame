@@ -11,7 +11,7 @@ final class ExportCroppedVideoUseCase {
         video: VideoAsset,
         cropFrames: [CropFrame],
         aspectRatio: CropAspectRatio = .vertical9x16,
-        progress: @escaping @Sendable (Double) async -> Void
+        progress: @escaping ProgressHandler
     ) async throws -> URL {
         try await exportService.export(
             video: video,
@@ -21,4 +21,3 @@ final class ExportCroppedVideoUseCase {
         )
     }
 }
-

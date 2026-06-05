@@ -1,6 +1,10 @@
-import AVFoundation
+@preconcurrency import AVFoundation
 import CoreGraphics
 import Foundation
+
+private struct ExportSessionBox: @unchecked Sendable {
+    let session: AVAssetExportSession
+}
 
 final class VideoExportService {
     /// Exports a new video by applying time-varying layer transforms that map each
@@ -10,7 +14,7 @@ final class VideoExportService {
         video: VideoAsset,
         cropFrames: [CropFrame],
         aspectRatio: CropAspectRatio = .vertical9x16,
-        progress: @escaping @Sendable (Double) async -> Void
+        progress: @escaping ProgressHandler
     ) async throws -> URL {
         guard !cropFrames.isEmpty else {
             throw AppError.cropPlanUnavailable
@@ -72,32 +76,35 @@ final class VideoExportService {
         exportSession.outputFileType = .mp4
         exportSession.shouldOptimizeForNetworkUse = true
         exportSession.videoComposition = videoComposition
+        let exportSessionBox = ExportSessionBox(session: exportSession)
 
-        let progressTask = Task {
+        let progressTask = Task { [exportSessionBox] in
+            let session = exportSessionBox.session
             while !Task.isCancelled {
-                switch exportSession.status {
+                switch session.status {
                 case .waiting, .exporting:
-                    await progress(Double(exportSession.progress))
+                    await progress(Double(session.progress))
                     try? await Task.sleep(nanoseconds: 200_000_000)
                 default:
-                    await progress(Double(exportSession.progress))
+                    await progress(Double(session.progress))
                     return
                 }
             }
         }
 
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-            exportSession.exportAsynchronously {
+            exportSession.exportAsynchronously { [exportSessionBox] in
+                let session = exportSessionBox.session
                 progressTask.cancel()
-                switch exportSession.status {
+                switch session.status {
                 case .completed:
                     continuation.resume()
                 case .cancelled:
                     continuation.resume(throwing: AppError.cancelled)
                 case .failed:
-                    continuation.resume(throwing: AppError.exportFailed(exportSession.error?.localizedDescription ?? "Unknown error"))
+                    continuation.resume(throwing: AppError.exportFailed(session.error?.localizedDescription ?? "Unknown error"))
                 default:
-                    continuation.resume(throwing: AppError.exportFailed("Unexpected export status \(exportSession.status.rawValue)"))
+                    continuation.resume(throwing: AppError.exportFailed("Unexpected export status \(session.status.rawValue)"))
                 }
             }
         }
@@ -167,4 +174,3 @@ final class VideoExportService {
             .concatenating(CGAffineTransform(scaleX: scale, y: scale))
     }
 }
-

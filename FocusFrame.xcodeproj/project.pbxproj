@@ -26,6 +26,7 @@
 		736A29B4CA861688EDE98614 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDCD4235DDF7750916CB67 /* ResultView.swift */; };
 		75832459F67D69BE751566CE /* VideoExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975CF40849035ED8A654DD1 /* VideoExportService.swift */; };
 		7B051707632D29D5A59DA285 /* PickVideoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BB995536F5A8E6765546B /* PickVideoUseCase.swift */; };
+		832377AD1D7EF8C3E0781E68 /* ProgressHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1FEDFCE92A35051DA0B833 /* ProgressHandler.swift */; };
 		906BD65D853BA328FB6305A5 /* VideoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D822561019F466D9A33B6 /* VideoPreviewView.swift */; };
 		9205645375743863B3CE6BED /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56C3CA83FB8DD33F01F7AC /* VideoPickerView.swift */; };
 		A2E00A97291F496B9945B2E6 /* VideoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBA0991CBAE81B86E8371D /* VideoAsset.swift */; };
@@ -79,6 +80,7 @@
 		8CB6D5745E3CBEFBA99FAD50 /* FocusFrameTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FocusFrameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90EC640FBE8F5E01D187D47D /* VideoMetadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMetadataService.swift; sourceTree = "<group>"; };
 		9E02E52BD312A0EBF25D9D94 /* CropPlanningService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropPlanningService.swift; sourceTree = "<group>"; };
+		9E1FEDFCE92A35051DA0B833 /* ProgressHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHandler.swift; sourceTree = "<group>"; };
 		AA80F5370C93F674B7E6AF95 /* URL+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Utils.swift"; sourceTree = "<group>"; };
 		AF0461A40080831E0089A5FE /* VideoPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerViewModel.swift; sourceTree = "<group>"; };
 		B19B363A34C9C9698D5BB397 /* CropPlanningServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropPlanningServiceTests.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				3F94489FAB5BF24732012675 /* CropFrame.swift */,
 				03AF1EC776ADBC6F89E6E9A6 /* PersonDetection.swift */,
 				01FE2C3A4923EF691BE87B96 /* ProcessingState.swift */,
+				9E1FEDFCE92A35051DA0B833 /* ProgressHandler.swift */,
 				DE3F4F12AA9F800D635C09DD /* TrackedPerson.swift */,
 				78DBA0991CBAE81B86E8371D /* VideoAsset.swift */,
 			);
@@ -390,6 +393,7 @@
 				1D4C3EB8203ABA7FAA3415CA /* ProcessingView.swift in Sources */,
 				0CE26B35C33AD315EBE182AE /* ProcessingViewModel.swift in Sources */,
 				332060231B6FB9CC349CB098 /* ProgressCardView.swift in Sources */,
+				832377AD1D7EF8C3E0781E68 /* ProgressHandler.swift in Sources */,
 				736A29B4CA861688EDE98614 /* ResultView.swift in Sources */,
 				D1B6B2B98F10C7F7DFCAD92F /* ResultViewModel.swift in Sources */,
 				2C333A7118D5C5B266556756 /* TrackedPerson.swift in Sources */,
@@ -446,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -517,6 +522,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -545,6 +552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -609,6 +617,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
