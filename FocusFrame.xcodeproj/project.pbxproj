@@ -343,6 +343,12 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					2EC1298C97ABDFC8B9CF9D0D = {
+						DevelopmentTeam = 2Y2PJT8D3G;
+					};
+					5D5B939DA41A62C130ED272E = {
+						DevelopmentTeam = 2Y2PJT8D3G;
+					};
 				};
 			};
 			buildConfigurationList = 12D525053D2A68E257959C09 /* Build configuration list for PBXProject "FocusFrame" */;
@@ -499,6 +505,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2Y2PJT8D3G;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -601,6 +608,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2Y2PJT8D3G;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

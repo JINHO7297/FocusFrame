@@ -12,11 +12,11 @@ final class GenerateCropPlanUseCase {
         video: VideoAsset,
         aspectRatio: CropAspectRatio = .vertical9x16
     ) throws -> [CropFrame] {
-        try cropPlanningService.generateCropFrames(
+        try cropPlanningService.generateFrameAlignedCropFrames(
             detections: trackedPerson.detections,
             videoSize: video.displaySize,
+            duration: video.duration,
             aspectRatio: aspectRatio
         )
     }
 }
-

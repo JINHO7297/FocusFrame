@@ -63,15 +63,15 @@ FocusFrame/
 2. `VideoMetadataService` reads duration, display-oriented resolution, and file details.
 3. `VisionPersonDetectionService` samples frames at 5 fps and runs `VNDetectHumanRectanglesRequest`.
 4. `PersonTrackingService` keeps the largest detected person per sampled frame.
-5. `CropPlanningService` converts Vision boxes into display-space pixels, pads the crop, clamps it to the video bounds, and smooths movement.
-6. `VideoExportService` applies transform ramps to crop the source video into a 1080x1920 MP4 while preserving audio.
+5. `CropPlanningService` converts Vision boxes into display-space pixels, interpolates the person position onto the 30fps export timeline, creates one crop rect per output frame, clamps it to the video bounds, and smooths movement.
+6. `VideoExportService` applies frame-to-frame transform ramps from that crop timeline to crop the source video into a 1080x1920 MP4 while preserving audio.
 7. The result can be previewed, shared, or saved to Photos.
 
 ## Current MVP Limits
 
 - Multiple people are not re-identified across frames; the largest box is always selected.
 - If people cross or one person briefly becomes larger, the target may switch.
-- Fast motion can still cause crop jumps because detection is sampled at 5 fps.
+- Fast motion can still cause crop jumps because Vision detections are sampled before being interpolated to the export frame rate.
 - Vision human rectangle detection may miss partial bodies, unusual poses, or motion-blurred frames.
 - Export transform math accounts for orientation, but unusual camera metadata should be tested with real device footage.
 - There is no manual target selection or crop correction UI yet.
@@ -84,4 +84,3 @@ FocusFrame/
 - Add cancellation controls for analysis and export.
 - Add richer export presets and bitrate controls.
 - Add sample video fixtures and integration tests once test media is available.
-

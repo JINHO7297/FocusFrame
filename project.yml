@@ -5,6 +5,7 @@ options:
     iOS: "16.0"
 settings:
   base:
+    DEVELOPMENT_TEAM: 2Y2PJT8D3G
     SUPPORTED_PLATFORMS: "iphoneos iphonesimulator"
     SUPPORTS_MACCATALYST: NO
     SWIFT_VERSION: "5.0"

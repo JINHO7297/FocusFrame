@@ -72,5 +72,38 @@ final class CropPlanningServiceTests: XCTestCase {
         XCTAssertGreaterThan(smoothedSecondX, firstX)
         XCTAssertLessThan(smoothedSecondX, unsmoothedSecondX)
     }
-}
 
+    func testFrameAlignedCropPlanCreatesCropForEveryOutputFrame() throws {
+        let service = CropPlanningService()
+        let detections = [
+            PersonDetection(
+                time: CMTime(seconds: 0, preferredTimescale: 600),
+                normalizedBoundingBox: CGRect(x: 0.10, y: 0.30, width: 0.20, height: 0.30),
+                confidence: 0.9
+            ),
+            PersonDetection(
+                time: CMTime(seconds: 1, preferredTimescale: 600),
+                normalizedBoundingBox: CGRect(x: 0.65, y: 0.30, width: 0.20, height: 0.30),
+                confidence: 0.9
+            )
+        ]
+
+        let frames = try service.generateFrameAlignedCropFrames(
+            detections: detections,
+            videoSize: CGSize(width: 1920, height: 1080),
+            duration: CMTime(seconds: 1, preferredTimescale: 600),
+            smoothing: 1,
+            outputFrameRate: 30
+        )
+
+        XCTAssertEqual(frames.count, 31)
+        XCTAssertEqual(frames.first?.time.seconds ?? -1, 0, accuracy: 0.001)
+        XCTAssertEqual(frames.last?.time.seconds ?? -1, 1, accuracy: 0.001)
+
+        let firstMidX = try XCTUnwrap(frames.first?.cropRect.midX)
+        let middleMidX = frames[15].cropRect.midX
+        let lastMidX = try XCTUnwrap(frames.last?.cropRect.midX)
+        XCTAssertGreaterThan(middleMidX, firstMidX)
+        XCTAssertLessThan(middleMidX, lastMidX)
+    }
+}
