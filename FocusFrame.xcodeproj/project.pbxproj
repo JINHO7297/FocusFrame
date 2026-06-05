@@ -1,0 +1,651 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03D8C98073D63C9E9E42536C /* CMTime+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EA655ECD0E1A9075A14B20 /* CMTime+Utils.swift */; };
+		0CE26B35C33AD315EBE182AE /* ProcessingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D0BB6D72C8A33EA7454E16 /* ProcessingViewModel.swift */; };
+		1D4C3EB8203ABA7FAA3415CA /* ProcessingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5658EE6F99F1D5AE0F15B0A /* ProcessingView.swift */; };
+		2238591379F8DCE1F260B482 /* VideoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0461A40080831E0089A5FE /* VideoPickerViewModel.swift */; };
+		2428CAA7D55E25EF1D71D806 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA0211F0D51CE4DAFC34480 /* PrimaryButton.swift */; };
+		274A8ED414C22952D19DF472 /* VisionPersonDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C3F2BAA4CFDD6A0E9DB349 /* VisionPersonDetectionService.swift */; };
+		2C333A7118D5C5B266556756 /* TrackedPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F4F12AA9F800D635C09DD /* TrackedPerson.swift */; };
+		2DE2ADFE90371D10E85A79F0 /* PersonDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AF1EC776ADBC6F89E6E9A6 /* PersonDetection.swift */; };
+		332060231B6FB9CC349CB098 /* ProgressCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932951B96C086862CB0A8D8 /* ProgressCardView.swift */; };
+		36552E79A7684478AA0EE578 /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBA687F32A1FF6A6D9EC87C /* FileManagerHelper.swift */; };
+		3A0DD0BB3CE66B1E12BE6E6E /* CGRect+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A904AD92D4132144CDB5FD /* CGRect+Utils.swift */; };
+		44CCC6B7878CB236A576A7DA /* AnalyzePersonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A70E0A9EA510E411B64379D /* AnalyzePersonUseCase.swift */; };
+		4EFBC2D10CD11B5BB1DB140C /* ProcessingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FE2C3A4923EF691BE87B96 /* ProcessingState.swift */; };
+		62B971871235869AA11444DF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD612B540C03C191F5C8870 /* Logger.swift */; };
+		679738D49C67DA87B6234C69 /* CropPlanningService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E02E52BD312A0EBF25D9D94 /* CropPlanningService.swift */; };
+		70277B31F027373DA569D68B /* PersonTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5517E69C4CA41FA9A36A0272 /* PersonTrackingService.swift */; };
+		736A29B4CA861688EDE98614 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDCD4235DDF7750916CB67 /* ResultView.swift */; };
+		75832459F67D69BE751566CE /* VideoExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D975CF40849035ED8A654DD1 /* VideoExportService.swift */; };
+		7B051707632D29D5A59DA285 /* PickVideoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BB995536F5A8E6765546B /* PickVideoUseCase.swift */; };
+		906BD65D853BA328FB6305A5 /* VideoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D822561019F466D9A33B6 /* VideoPreviewView.swift */; };
+		9205645375743863B3CE6BED /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56C3CA83FB8DD33F01F7AC /* VideoPickerView.swift */; };
+		A2E00A97291F496B9945B2E6 /* VideoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBA0991CBAE81B86E8371D /* VideoAsset.swift */; };
+		A50182E735EB950CFDF538D2 /* PhotoLibrarySaveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6C4C3C8FB9E26EAC33B929 /* PhotoLibrarySaveService.swift */; };
+		B1E212A1B739F3D4B26ED2DF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C95939E3DE7760B5142DD7A /* HomeView.swift */; };
+		CB07E837E6B2E822E9BECF52 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BF6A45BFED446E8B34ADB9 /* AppError.swift */; };
+		CC2184B82B558F9A07C1419A /* CropPlanningServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B363A34C9C9698D5BB397 /* CropPlanningServiceTests.swift */; };
+		D0A86C267B7A769C04EE3D72 /* CropFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94489FAB5BF24732012675 /* CropFrame.swift */; };
+		D1B6B2B98F10C7F7DFCAD92F /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F2E56CF11865094D715F03 /* ResultViewModel.swift */; };
+		DAA139E830B90DF37BB732DE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5395ABE407CA82EFA481EDC /* HomeViewModel.swift */; };
+		DF5BE9F88827325926F9AE48 /* CropAspectRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AA89EC5BA1CBB50DC3E23A /* CropAspectRatio.swift */; };
+		E04AFAD5F7B711A3145E0E8C /* GenerateCropPlanUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3DDB495F451896D72406A1 /* GenerateCropPlanUseCase.swift */; };
+		E1A87CEF88E4CBF6AFFCB892 /* VideoGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F6871CE1D0A430409ACBA3 /* VideoGeometry.swift */; };
+		E9DCEB6A8E918C1915896D90 /* FocusFrameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B882F3F4374DC95621952D /* FocusFrameApp.swift */; };
+		F4B4932DECCCCBE26F4CC29A /* VideoMetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EC640FBE8F5E01D187D47D /* VideoMetadataService.swift */; };
+		F6A8A4C5640A75DC2880D44D /* ExportCroppedVideoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB42787F6BCC6D22DE71524D /* ExportCroppedVideoUseCase.swift */; };
+		F9C9AE09079F3C40372F73A8 /* URL+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA80F5370C93F674B7E6AF95 /* URL+Utils.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A2C5C864674CBB7334A01D36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8FE41116B28FD6678F28D75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D5B939DA41A62C130ED272E;
+			remoteInfo = FocusFrame;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01FE2C3A4923EF691BE87B96 /* ProcessingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingState.swift; sourceTree = "<group>"; };
+		03AF1EC776ADBC6F89E6E9A6 /* PersonDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetection.swift; sourceTree = "<group>"; };
+		11B882F3F4374DC95621952D /* FocusFrameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusFrameApp.swift; sourceTree = "<group>"; };
+		126D822561019F466D9A33B6 /* VideoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewView.swift; sourceTree = "<group>"; };
+		16F6871CE1D0A430409ACBA3 /* VideoGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGeometry.swift; sourceTree = "<group>"; };
+		1A70E0A9EA510E411B64379D /* AnalyzePersonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzePersonUseCase.swift; sourceTree = "<group>"; };
+		1B6C4C3C8FB9E26EAC33B929 /* PhotoLibrarySaveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibrarySaveService.swift; sourceTree = "<group>"; };
+		2932951B96C086862CB0A8D8 /* ProgressCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCardView.swift; sourceTree = "<group>"; };
+		2D56C3CA83FB8DD33F01F7AC /* VideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerView.swift; sourceTree = "<group>"; };
+		36C3F2BAA4CFDD6A0E9DB349 /* VisionPersonDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionPersonDetectionService.swift; sourceTree = "<group>"; };
+		3F94489FAB5BF24732012675 /* CropFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropFrame.swift; sourceTree = "<group>"; };
+		3FFDCD4235DDF7750916CB67 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		42A904AD92D4132144CDB5FD /* CGRect+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Utils.swift"; sourceTree = "<group>"; };
+		43BF6A45BFED446E8B34ADB9 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		51AA89EC5BA1CBB50DC3E23A /* CropAspectRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropAspectRatio.swift; sourceTree = "<group>"; };
+		5517E69C4CA41FA9A36A0272 /* PersonTrackingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTrackingService.swift; sourceTree = "<group>"; };
+		5D3BB995536F5A8E6765546B /* PickVideoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickVideoUseCase.swift; sourceTree = "<group>"; };
+		78DBA0991CBAE81B86E8371D /* VideoAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAsset.swift; sourceTree = "<group>"; };
+		7C95939E3DE7760B5142DD7A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8BD612B540C03C191F5C8870 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		8CB6D5745E3CBEFBA99FAD50 /* FocusFrameTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = FocusFrameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90EC640FBE8F5E01D187D47D /* VideoMetadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMetadataService.swift; sourceTree = "<group>"; };
+		9E02E52BD312A0EBF25D9D94 /* CropPlanningService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropPlanningService.swift; sourceTree = "<group>"; };
+		AA80F5370C93F674B7E6AF95 /* URL+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Utils.swift"; sourceTree = "<group>"; };
+		AF0461A40080831E0089A5FE /* VideoPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerViewModel.swift; sourceTree = "<group>"; };
+		B19B363A34C9C9698D5BB397 /* CropPlanningServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropPlanningServiceTests.swift; sourceTree = "<group>"; };
+		B77552A95FE1FF829872A7CE /* FocusFrame.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FocusFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5658EE6F99F1D5AE0F15B0A /* ProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingView.swift; sourceTree = "<group>"; };
+		CB42787F6BCC6D22DE71524D /* ExportCroppedVideoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportCroppedVideoUseCase.swift; sourceTree = "<group>"; };
+		D975CF40849035ED8A654DD1 /* VideoExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoExportService.swift; sourceTree = "<group>"; };
+		DA3DDB495F451896D72406A1 /* GenerateCropPlanUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateCropPlanUseCase.swift; sourceTree = "<group>"; };
+		DCBA687F32A1FF6A6D9EC87C /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
+		DE3F4F12AA9F800D635C09DD /* TrackedPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedPerson.swift; sourceTree = "<group>"; };
+		E2D0BB6D72C8A33EA7454E16 /* ProcessingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingViewModel.swift; sourceTree = "<group>"; };
+		E4EA655ECD0E1A9075A14B20 /* CMTime+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime+Utils.swift"; sourceTree = "<group>"; };
+		E6F2E56CF11865094D715F03 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		EAA0211F0D51CE4DAFC34480 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		F5395ABE407CA82EFA481EDC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0161E4875C6408E183B905EB /* FocusFrameTests */ = {
+			isa = PBXGroup;
+			children = (
+				B19B363A34C9C9698D5BB397 /* CropPlanningServiceTests.swift */,
+			);
+			path = FocusFrameTests;
+			sourceTree = "<group>";
+		};
+		103677CB9DFFC99368D3409B /* FocusFrame */ = {
+			isa = PBXGroup;
+			children = (
+				41EDEDA7C54BE88CCD046C86 /* App */,
+				31AEE78ED186AB9F8CCAAE6A /* Core */,
+				5C659BF915E2A9D82039921E /* Data */,
+				DF341DCBE76CA550C2AEECF7 /* Domain */,
+				10DEB3C87CFCAB3EF155EAC0 /* Presentation */,
+			);
+			path = FocusFrame;
+			sourceTree = "<group>";
+		};
+		10DEB3C87CFCAB3EF155EAC0 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4CFBDBA13C4B65D4AFCD71A9 /* Components */,
+				606A6714CE877696C55D5BCE /* Home */,
+				F58FF067399C3408D4027FC9 /* Processing */,
+				9F3D3934FFF09F889E09F775 /* Result */,
+				3B0E7AF461519A229D0A598C /* VideoPicker */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		31AEE78ED186AB9F8CCAAE6A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				54F42697770B31077860D5BC /* Errors */,
+				ECFCAE7F03F1AB8D1F50599C /* Extensions */,
+				F3F11C99A211BAF30B55D795 /* Utils */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3471A2EB26508D7CBA0CF807 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				51AA89EC5BA1CBB50DC3E23A /* CropAspectRatio.swift */,
+				3F94489FAB5BF24732012675 /* CropFrame.swift */,
+				03AF1EC776ADBC6F89E6E9A6 /* PersonDetection.swift */,
+				01FE2C3A4923EF691BE87B96 /* ProcessingState.swift */,
+				DE3F4F12AA9F800D635C09DD /* TrackedPerson.swift */,
+				78DBA0991CBAE81B86E8371D /* VideoAsset.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3B0E7AF461519A229D0A598C /* VideoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				2D56C3CA83FB8DD33F01F7AC /* VideoPickerView.swift */,
+				AF0461A40080831E0089A5FE /* VideoPickerViewModel.swift */,
+			);
+			path = VideoPicker;
+			sourceTree = "<group>";
+		};
+		3D82E0678034F5F75DAC71B3 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				1A70E0A9EA510E411B64379D /* AnalyzePersonUseCase.swift */,
+				CB42787F6BCC6D22DE71524D /* ExportCroppedVideoUseCase.swift */,
+				DA3DDB495F451896D72406A1 /* GenerateCropPlanUseCase.swift */,
+				5D3BB995536F5A8E6765546B /* PickVideoUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		41EDEDA7C54BE88CCD046C86 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				11B882F3F4374DC95621952D /* FocusFrameApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4A67512A7DF00574BF2ADB15 = {
+			isa = PBXGroup;
+			children = (
+				103677CB9DFFC99368D3409B /* FocusFrame */,
+				0161E4875C6408E183B905EB /* FocusFrameTests */,
+				BA5646FEE2024D0D7DB0AC67 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4CFBDBA13C4B65D4AFCD71A9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EAA0211F0D51CE4DAFC34480 /* PrimaryButton.swift */,
+				2932951B96C086862CB0A8D8 /* ProgressCardView.swift */,
+				126D822561019F466D9A33B6 /* VideoPreviewView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		54F42697770B31077860D5BC /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				43BF6A45BFED446E8B34ADB9 /* AppError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		5C659BF915E2A9D82039921E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FC9E7D14A9CA30FEA2BE1C52 /* Services */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		606A6714CE877696C55D5BCE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7C95939E3DE7760B5142DD7A /* HomeView.swift */,
+				F5395ABE407CA82EFA481EDC /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9F3D3934FFF09F889E09F775 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				3FFDCD4235DDF7750916CB67 /* ResultView.swift */,
+				E6F2E56CF11865094D715F03 /* ResultViewModel.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		BA5646FEE2024D0D7DB0AC67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B77552A95FE1FF829872A7CE /* FocusFrame.app */,
+				8CB6D5745E3CBEFBA99FAD50 /* FocusFrameTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DF341DCBE76CA550C2AEECF7 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3471A2EB26508D7CBA0CF807 /* Models */,
+				3D82E0678034F5F75DAC71B3 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		ECFCAE7F03F1AB8D1F50599C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				42A904AD92D4132144CDB5FD /* CGRect+Utils.swift */,
+				E4EA655ECD0E1A9075A14B20 /* CMTime+Utils.swift */,
+				AA80F5370C93F674B7E6AF95 /* URL+Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F3F11C99A211BAF30B55D795 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DCBA687F32A1FF6A6D9EC87C /* FileManagerHelper.swift */,
+				8BD612B540C03C191F5C8870 /* Logger.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F58FF067399C3408D4027FC9 /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+				C5658EE6F99F1D5AE0F15B0A /* ProcessingView.swift */,
+				E2D0BB6D72C8A33EA7454E16 /* ProcessingViewModel.swift */,
+			);
+			path = Processing;
+			sourceTree = "<group>";
+		};
+		FC9E7D14A9CA30FEA2BE1C52 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9E02E52BD312A0EBF25D9D94 /* CropPlanningService.swift */,
+				5517E69C4CA41FA9A36A0272 /* PersonTrackingService.swift */,
+				1B6C4C3C8FB9E26EAC33B929 /* PhotoLibrarySaveService.swift */,
+				D975CF40849035ED8A654DD1 /* VideoExportService.swift */,
+				16F6871CE1D0A430409ACBA3 /* VideoGeometry.swift */,
+				90EC640FBE8F5E01D187D47D /* VideoMetadataService.swift */,
+				36C3F2BAA4CFDD6A0E9DB349 /* VisionPersonDetectionService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2EC1298C97ABDFC8B9CF9D0D /* FocusFrameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33503D32FC553AFD706611F3 /* Build configuration list for PBXNativeTarget "FocusFrameTests" */;
+			buildPhases = (
+				D5106DD91426E1145DB35DC7 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FB4308A116E463AFBCEE9E9 /* PBXTargetDependency */,
+			);
+			name = FocusFrameTests;
+			packageProductDependencies = (
+			);
+			productName = FocusFrameTests;
+			productReference = 8CB6D5745E3CBEFBA99FAD50 /* FocusFrameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5D5B939DA41A62C130ED272E /* FocusFrame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A09762B2DA2D91F3F8DCA6E4 /* Build configuration list for PBXNativeTarget "FocusFrame" */;
+			buildPhases = (
+				0FAE3CCD12E1A81697B03CC2 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusFrame;
+			packageProductDependencies = (
+			);
+			productName = FocusFrame;
+			productReference = B77552A95FE1FF829872A7CE /* FocusFrame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E8FE41116B28FD6678F28D75 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 12D525053D2A68E257959C09 /* Build configuration list for PBXProject "FocusFrame" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 4A67512A7DF00574BF2ADB15;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = BA5646FEE2024D0D7DB0AC67 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5D5B939DA41A62C130ED272E /* FocusFrame */,
+				2EC1298C97ABDFC8B9CF9D0D /* FocusFrameTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0FAE3CCD12E1A81697B03CC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44CCC6B7878CB236A576A7DA /* AnalyzePersonUseCase.swift in Sources */,
+				CB07E837E6B2E822E9BECF52 /* AppError.swift in Sources */,
+				3A0DD0BB3CE66B1E12BE6E6E /* CGRect+Utils.swift in Sources */,
+				03D8C98073D63C9E9E42536C /* CMTime+Utils.swift in Sources */,
+				DF5BE9F88827325926F9AE48 /* CropAspectRatio.swift in Sources */,
+				D0A86C267B7A769C04EE3D72 /* CropFrame.swift in Sources */,
+				679738D49C67DA87B6234C69 /* CropPlanningService.swift in Sources */,
+				F6A8A4C5640A75DC2880D44D /* ExportCroppedVideoUseCase.swift in Sources */,
+				36552E79A7684478AA0EE578 /* FileManagerHelper.swift in Sources */,
+				E9DCEB6A8E918C1915896D90 /* FocusFrameApp.swift in Sources */,
+				E04AFAD5F7B711A3145E0E8C /* GenerateCropPlanUseCase.swift in Sources */,
+				B1E212A1B739F3D4B26ED2DF /* HomeView.swift in Sources */,
+				DAA139E830B90DF37BB732DE /* HomeViewModel.swift in Sources */,
+				62B971871235869AA11444DF /* Logger.swift in Sources */,
+				2DE2ADFE90371D10E85A79F0 /* PersonDetection.swift in Sources */,
+				70277B31F027373DA569D68B /* PersonTrackingService.swift in Sources */,
+				A50182E735EB950CFDF538D2 /* PhotoLibrarySaveService.swift in Sources */,
+				7B051707632D29D5A59DA285 /* PickVideoUseCase.swift in Sources */,
+				2428CAA7D55E25EF1D71D806 /* PrimaryButton.swift in Sources */,
+				4EFBC2D10CD11B5BB1DB140C /* ProcessingState.swift in Sources */,
+				1D4C3EB8203ABA7FAA3415CA /* ProcessingView.swift in Sources */,
+				0CE26B35C33AD315EBE182AE /* ProcessingViewModel.swift in Sources */,
+				332060231B6FB9CC349CB098 /* ProgressCardView.swift in Sources */,
+				736A29B4CA861688EDE98614 /* ResultView.swift in Sources */,
+				D1B6B2B98F10C7F7DFCAD92F /* ResultViewModel.swift in Sources */,
+				2C333A7118D5C5B266556756 /* TrackedPerson.swift in Sources */,
+				F9C9AE09079F3C40372F73A8 /* URL+Utils.swift in Sources */,
+				A2E00A97291F496B9945B2E6 /* VideoAsset.swift in Sources */,
+				75832459F67D69BE751566CE /* VideoExportService.swift in Sources */,
+				E1A87CEF88E4CBF6AFFCB892 /* VideoGeometry.swift in Sources */,
+				F4B4932DECCCCBE26F4CC29A /* VideoMetadataService.swift in Sources */,
+				9205645375743863B3CE6BED /* VideoPickerView.swift in Sources */,
+				2238591379F8DCE1F260B482 /* VideoPickerViewModel.swift in Sources */,
+				906BD65D853BA328FB6305A5 /* VideoPreviewView.swift in Sources */,
+				274A8ED414C22952D19DF472 /* VisionPersonDetectionService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5106DD91426E1145DB35DC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC2184B82B558F9A07C1419A /* CropPlanningServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FB4308A116E463AFBCEE9E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D5B939DA41A62C130ED272E /* FocusFrame */;
+			targetProxy = A2C5C864674CBB7334A01D36 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1F06C99DE793D5989F131598 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FocusFrame/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinho.FocusFrame;
+				PRODUCT_NAME = FocusFrame;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		516D473E8DDA133FF1B51D53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinho.FocusFrameTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FocusFrame.app/FocusFrame";
+			};
+			name = Debug;
+		};
+		581A0C6CCA1F814068C26F81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6CAB6D5A144E6BFFA77C9246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FocusFrame/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinho.FocusFrame;
+				PRODUCT_NAME = FocusFrame;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8E1AC8740F3E673CD0683CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinho.FocusFrameTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FocusFrame.app/FocusFrame";
+			};
+			name = Release;
+		};
+		E76FE0B04BAA0C0151326D32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		12D525053D2A68E257959C09 /* Build configuration list for PBXProject "FocusFrame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				581A0C6CCA1F814068C26F81 /* Debug */,
+				E76FE0B04BAA0C0151326D32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		33503D32FC553AFD706611F3 /* Build configuration list for PBXNativeTarget "FocusFrameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				516D473E8DDA133FF1B51D53 /* Debug */,
+				D8E1AC8740F3E673CD0683CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A09762B2DA2D91F3F8DCA6E4 /* Build configuration list for PBXNativeTarget "FocusFrame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CAB6D5A144E6BFFA77C9246 /* Debug */,
+				1F06C99DE793D5989F131598 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E8FE41116B28FD6678F28D75 /* Project object */;
+}

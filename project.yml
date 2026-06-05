@@ -1,0 +1,49 @@
+name: FocusFrame
+options:
+  bundleIdPrefix: com.jinho
+  deploymentTarget:
+    iOS: "16.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  FocusFrame:
+    type: application
+    platform: iOS
+    sources:
+      - path: FocusFrame
+        excludes:
+          - Resources/**
+    resources:
+      - path: FocusFrame/Resources/Assets.xcassets
+    info:
+      path: FocusFrame/Resources/Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jinho.FocusFrame
+        PRODUCT_NAME: FocusFrame
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        GENERATE_INFOPLIST_FILE: NO
+    scheme:
+      testTargets:
+        - FocusFrameTests
+  FocusFrameTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: FocusFrameTests
+    dependencies:
+      - target: FocusFrame
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jinho.FocusFrameTests
+schemes:
+  FocusFrame:
+    build:
+      targets:
+        FocusFrame: all
+    test:
+      targets:
+        - FocusFrameTests
