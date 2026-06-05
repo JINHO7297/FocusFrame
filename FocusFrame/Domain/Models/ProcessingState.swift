@@ -25,7 +25,7 @@ struct ProcessingState: Equatable {
     }
 
     static func exporting(progress: Double) -> ProcessingState {
-        ProcessingState(phase: .exporting, progress: progress, message: "사람을 따라가는 세로 영상을 만들고 있어요")
+        ProcessingState(phase: .exporting, progress: progress, message: "사람을 따라가는 크롭 영상을 만들고 있어요")
     }
 
     static func failed(_ error: AppError) -> ProcessingState {

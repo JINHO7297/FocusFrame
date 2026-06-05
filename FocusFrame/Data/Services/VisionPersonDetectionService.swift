@@ -5,14 +5,18 @@ import Vision
 
 final class VisionPersonDetectionService {
     private let sampleFPS: Double
+    private static let minimumJointConfidence: Float = 0.2
 
     init(sampleFPS: Double = 5) {
         self.sampleFPS = sampleFPS
     }
 
-    /// Samples the video at a fixed FPS and runs Vision human rectangle detection
-    /// on each generated frame. The largest bounding box per frame becomes the
-    /// MVP target for that timestamp.
+    /// Samples the video at a fixed FPS and runs Vision human body pose estimation.
+    ///
+    /// `VNDetectHumanBodyPoseRequest` returns normalized joint coordinates rather
+    /// than object-detection rectangles. For each pose observation this service
+    /// filters reliable joints, builds a pose-derived body span, and stores the
+    /// average joint center as the camera framing anchor.
     func detectPeople(
         in video: VideoAsset,
         progress: @escaping ProgressHandler
@@ -38,7 +42,7 @@ final class VisionPersonDetectionService {
                 var actualTime = CMTime.zero
                 let image = try generator.copyCGImage(at: requestedTime, actualTime: &actualTime)
 
-                if let detection = try Self.detectLargestPerson(in: image, at: actualTime) {
+                if let detection = try Self.detectLargestPersonPose(in: image, at: actualTime) {
                     detections.append(detection)
                 }
 
@@ -52,21 +56,54 @@ final class VisionPersonDetectionService {
         }.value
     }
 
-    private static func detectLargestPerson(in image: CGImage, at time: CMTime) throws -> PersonDetection? {
-        let request = VNDetectHumanRectanglesRequest()
-        request.upperBodyOnly = false
+    private static func detectLargestPersonPose(in image: CGImage, at time: CMTime) throws -> PersonDetection? {
+        let request = VNDetectHumanBodyPoseRequest()
 
         let handler = VNImageRequestHandler(cgImage: image, orientation: .up)
         try handler.perform([request])
 
-        guard let observation = request.results?.max(by: { $0.boundingBox.area < $1.boundingBox.area }) else {
+        return try request.results?
+            .compactMap { try detection(from: $0, at: time) }
+            .max { $0.area < $1.area }
+    }
+
+    private static func detection(
+        from observation: VNHumanBodyPoseObservation,
+        at time: CMTime
+    ) throws -> PersonDetection? {
+        let recognizedPoints = try observation.recognizedPoints(.all)
+        let reliablePoints = recognizedPoints.values
+            .filter { $0.confidence >= minimumJointConfidence }
+
+        guard !reliablePoints.isEmpty else {
             return nil
         }
 
+        let points = reliablePoints.map { clampNormalized($0.location) }
+        let minX = points.map(\.x).min() ?? 0
+        let minY = points.map(\.y).min() ?? 0
+        let maxX = points.map(\.x).max() ?? minX
+        let maxY = points.map(\.y).max() ?? minY
+        let summedPoint = points.reduce(CGPoint.zero) { partial, point in
+            CGPoint(x: partial.x + point.x, y: partial.y + point.y)
+        }
+        let jointCount = CGFloat(points.count)
+        let center = CGPoint(x: summedPoint.x / jointCount, y: summedPoint.y / jointCount)
+        let averageConfidence = reliablePoints.reduce(Float.zero) { $0 + $1.confidence } / Float(reliablePoints.count)
+
         return PersonDetection(
             time: time,
-            normalizedBoundingBox: observation.boundingBox,
-            confidence: observation.confidence
+            normalizedBoundingBox: CGRect(x: minX, y: minY, width: maxX - minX, height: maxY - minY),
+            normalizedCenter: center,
+            confidence: averageConfidence,
+            jointCount: points.count
+        )
+    }
+
+    private static func clampNormalized(_ point: CGPoint) -> CGPoint {
+        CGPoint(
+            x: min(max(point.x, 0), 1),
+            y: min(max(point.y, 0), 1)
         )
     }
 }

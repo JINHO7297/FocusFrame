@@ -106,4 +106,67 @@ final class CropPlanningServiceTests: XCTestCase {
         XCTAssertGreaterThan(middleMidX, firstMidX)
         XCTAssertLessThan(middleMidX, lastMidX)
     }
+
+    func testFrameAlignedCropPlanUsesPoseCenterAsFramingAnchor() throws {
+        let service = CropPlanningService()
+        let detections = [
+            PersonDetection(
+                time: CMTime(seconds: 0, preferredTimescale: 600),
+                normalizedBoundingBox: CGRect(x: 0.10, y: 0.10, width: 0.10, height: 0.10),
+                normalizedCenter: CGPoint(x: 0.70, y: 0.25),
+                confidence: 0.9
+            )
+        ]
+
+        let frames = try service.generateFrameAlignedCropFrames(
+            detections: detections,
+            videoSize: CGSize(width: 1000, height: 1000),
+            duration: CMTime(seconds: 0, preferredTimescale: 600),
+            cropWidthToHeight: 1,
+            smoothing: 1,
+            outputFrameRate: 30
+        )
+
+        let crop = try XCTUnwrap(frames.first?.cropRect)
+        XCTAssertEqual(crop.midX, 700, accuracy: 0.001)
+        XCTAssertEqual(crop.midY, 750, accuracy: 0.001)
+    }
+
+    func testFrameAlignedCropPlanCanUseInputAspectRatio() throws {
+        let service = CropPlanningService()
+        let detections = [
+            PersonDetection(
+                time: CMTime(seconds: 0, preferredTimescale: 600),
+                normalizedBoundingBox: CGRect(x: 0.40, y: 0.25, width: 0.10, height: 0.20),
+                normalizedCenter: CGPoint(x: 0.45, y: 0.35),
+                confidence: 0.9
+            )
+        ]
+
+        let frames = try service.generateFrameAlignedCropFrames(
+            detections: detections,
+            videoSize: CGSize(width: 1920, height: 1080),
+            duration: CMTime(seconds: 0, preferredTimescale: 600),
+            cropWidthToHeight: 16 / 9,
+            smoothing: 1,
+            outputFrameRate: 30
+        )
+
+        let crop = try XCTUnwrap(frames.first?.cropRect)
+        XCTAssertEqual(crop.width / crop.height, 16 / 9, accuracy: 0.001)
+    }
+
+    func testExportRenderSizePreservesInputDisplaySize() {
+        let service = VideoExportService()
+        let video = VideoAsset(
+            url: URL(fileURLWithPath: "/tmp/input.mov"),
+            fileName: "input.mov",
+            duration: CMTime(seconds: 1, preferredTimescale: 600),
+            naturalSize: CGSize(width: 1080, height: 1920),
+            displaySize: CGSize(width: 1920, height: 1080),
+            fileSizeInBytes: nil
+        )
+
+        XCTAssertEqual(service.outputRenderSize(for: video), CGSize(width: 1920, height: 1080))
+    }
 }

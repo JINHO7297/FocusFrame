@@ -43,5 +43,36 @@ extension CGRect {
             height: rect.height * displaySize.height
         )
     }
+
+    /// Converts a Vision normalized point into display-space pixels.
+    ///
+    /// Body pose joints use the same normalized lower-left coordinate system as
+    /// Vision rectangles. The export pipeline uses upper-left display pixels, so
+    /// the y-axis is flipped with `1 - y`.
+    static func displayPoint(fromVisionNormalized point: CGPoint, in displaySize: CGSize) -> CGPoint {
+        CGPoint(
+            x: point.x * displaySize.width,
+            y: (1 - point.y) * displaySize.height
+        )
+    }
 }
 
+extension CGPoint {
+    func interpolated(to target: CGPoint, amount: CGFloat) -> CGPoint {
+        let t = min(max(amount, 0), 1)
+        return CGPoint(
+            x: x + (target.x - x) * t,
+            y: y + (target.y - y) * t
+        )
+    }
+}
+
+extension CGSize {
+    func interpolated(to target: CGSize, amount: CGFloat) -> CGSize {
+        let t = min(max(amount, 0), 1)
+        return CGSize(
+            width: width + (target.width - width) * t,
+            height: height + (target.height - height) * t
+        )
+    }
+}

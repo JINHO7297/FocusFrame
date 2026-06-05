@@ -13,7 +13,6 @@ final class VideoExportService {
     func export(
         video: VideoAsset,
         cropFrames: [CropFrame],
-        aspectRatio: CropAspectRatio = .vertical9x16,
         progress: @escaping ProgressHandler
     ) async throws -> URL {
         guard !cropFrames.isEmpty else {
@@ -55,7 +54,7 @@ final class VideoExportService {
             preferredTransform: preferredTransform
         )
 
-        let outputSize = aspectRatio.defaultOutputSize
+        let outputSize = outputRenderSize(for: video)
         let videoComposition = AVMutableVideoComposition()
         videoComposition.renderSize = outputSize
         videoComposition.frameDuration = CMTime(value: 1, timescale: 30)
@@ -111,6 +110,10 @@ final class VideoExportService {
 
         await progress(1)
         return outputURL
+    }
+
+    func outputRenderSize(for video: VideoAsset) -> CGSize {
+        video.displaySize
     }
 
     private func makeInstructions(

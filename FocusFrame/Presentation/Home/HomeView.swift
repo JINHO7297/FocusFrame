@@ -60,13 +60,13 @@ struct HomeView: View {
             }
 
             VStack(alignment: .leading, spacing: 8) {
-                Text("사람을 따라가는\n세로 영상을 만들어요")
+                Text("사람을 따라가는\n크롭 영상을 만들어요")
                     .font(.system(size: 30, weight: .bold))
                     .foregroundStyle(AppTheme.ink)
                     .lineSpacing(2)
                     .fixedSize(horizontal: false, vertical: true)
 
-                Text("프레임별로 사람 위치를 추적하고, 자연스럽게 움직이는 9:16 크롭 영상으로 내보냅니다.")
+                Text("관절 좌표의 중심점을 따라가며, 원본 영상 비율 그대로 자연스럽게 내보냅니다.")
                     .font(.subheadline)
                     .foregroundStyle(AppTheme.secondaryInk)
                     .lineSpacing(3)
@@ -74,7 +74,7 @@ struct HomeView: View {
             }
 
             HStack(spacing: 8) {
-                featurePill("9:16")
+                featurePill("원본 비율")
                 featurePill("오디오 유지")
                 featurePill("서버 없음")
             }

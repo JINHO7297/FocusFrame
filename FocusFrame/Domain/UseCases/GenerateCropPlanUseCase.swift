@@ -9,14 +9,13 @@ final class GenerateCropPlanUseCase {
 
     func execute(
         trackedPerson: TrackedPerson,
-        video: VideoAsset,
-        aspectRatio: CropAspectRatio = .vertical9x16
+        video: VideoAsset
     ) throws -> [CropFrame] {
         try cropPlanningService.generateFrameAlignedCropFrames(
             detections: trackedPerson.detections,
             videoSize: video.displaySize,
             duration: video.duration,
-            aspectRatio: aspectRatio
+            cropWidthToHeight: video.displaySize.width / video.displaySize.height
         )
     }
 }
